@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+    <form method='POST'>
+      
+        <p>Choose Address</p>
+        <?php
+         foreach($args as $address){
+          echo "<input type='radio' name='address' id='address' value='address'>";
+            echo "<label for='address'>".$address->name_address."</label><br>"; }
+         ?>
+        <br><br><br>
+        <button type='submit'><a href='/darrbeni/one/Family/group1_test_repo/show_search'>search</a></button><br> <br> 
+        <br> <br>
+        <a href="/darrbeni/one/Family/group1_test_repo/">go back Home</a>
+ 
+        </form>
+</body>
+</html>

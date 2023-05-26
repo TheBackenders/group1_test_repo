@@ -5,10 +5,8 @@ namespace config;
 use PDO;
 use PDOException;
 
-
 class Connection
 {
-
     public $db_params;
     function __construct()
     {
@@ -19,7 +17,7 @@ class Connection
     {
 
         try {
-            $dsn = "mysql:host=".$this->db_params['host'].";dbname=".$this->db_params['database']; // Set the DSN (Data Source Name)
+            $dsn = "mysql:host=" . $this->db_params['host'] . ";dbname=" . $this->db_params['database']; // Set the DSN (Data Source Name)
             $pdo = new PDO($dsn, $this->db_params['username'], $this->db_params['password']); // Create a new PDO instance
 
             // Set PDO attributes
@@ -32,5 +30,3 @@ class Connection
         }
     }
 }
-
-

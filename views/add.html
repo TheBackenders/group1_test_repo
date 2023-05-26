@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add</title>
+</head>
+<body>
+    <form method='POST'>
+        <label>Name Father:</label><br>
+        <input type='text' name='name_father'><br>
+        <label>Count family member:</label><br>
+        <input type='text' name='count'><br>
+        <label>Enter Phone:</label><br>
+        <input type='text' name='phone'><br>
+        <p>Choose Status Father</p>
+    
+        <input type="radio" name="status" id="status1" value="موظف">
+        <label for="status1">موظف</label>
+        <br>
+        <input type="radio" name="status" id="status2" value="غير موظف">
+        <label for="status2">غير موظف</label>
+        <br>
+        <p>Choose Address</p>
+        <?php
+         foreach($args as $address){
+          echo "<input type='radio' name='address' id='address' value='{$address->id}'>";
+            echo "<label for='address'>".$address->name_address."</label><br>"; }
+         ?>
+        <br><br><br>
+        <a href="insert"><input type="submit" value="Add Family"></a>
+        <br> <br>
+        <a href="/darrbeni/one/Family/group1_test_repo/">go back Home</a>
+ 
+        </form>
+</body>
+</html>

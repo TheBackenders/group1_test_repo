@@ -1,5 +1,7 @@
+
+
 RewriteEngine On
-RewriteBase /darrbeni/one/MVC/crud/
+RewriteBase /darrbeni/one/Family/group1_test_repo/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php [L,QSA]
+RewriteRule ^(.*)$ index.php?id=1 [L,QSA]
