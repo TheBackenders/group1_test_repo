@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add</title>
+</head>
+<body>
+    <form method='POST'>
+        <?php
+        foreach($args as $family)
+         echo "<label>Name Father:</label><input type='text' name='name_father' value='".$family->name_father."'><br><br>";
+         echo "<label>Count family member:</label><input type='text' name='count' value='".$family->count."'><br><br>";
+        echo "<label>Enter Phone:</label><input type='text' name='phone' value='".$family->phone."'><br><br>";
+        echo "<label>Status Father :</label><input type='text' name='phone' value='".$family->status."' readonly><br><br>";
+
+        echo  "<p>Choose New Status Father</p>";
+        echo '<input type="radio" name="status" id="status1" value="موظف">
+        <label for="status1">موظف</label><br>';
+       echo '<input type="radio" name="status" id="status2" value="غير موظف">
+        <label for="status2">غير موظف</label><br><br>';
+        echo "<label>Name Address :</label><input type='text' name='address' value='".$family->name_address."' readonly><br><br>";
+        echo  "<p>Choose New Address</p>";
+        foreach($args as $address){
+            echo "<input type='radio' name='address' id='address' value='{$address->id}'>";
+              echo "<label for='address'>".$address->name_address."</label><br>"; }
+    ?> <br><br><br>
+        <?php 
+         echo  "<a href='edite?id='".$_GET['id']."><input type='submit' value='Edite'></a>" ;
+         ?>
+        <br> <br>
+        <a href="/Darrebni/ProjectFamily/">go back Home</a>
+ 
+        </form>
+</body>
+</html>

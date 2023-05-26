@@ -2,9 +2,9 @@
 
 namespace app\models;
 
-require_once('basedModels.php');
+require_once __DIR__."/basedmodel.php";
 
-class Address extends BaseModel
+class AddressModel extends BaseModel
 {
 
     public int $id;

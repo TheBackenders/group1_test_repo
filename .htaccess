@@ -1,5 +1,8 @@
 RewriteEngine On
-RewriteBase /darrbeni/one/MVC/crud/
+
+#accept loading of actual files and and directories
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php [L,QSA]
+
+#send everything else to the index page
+RewriteRule ^(.*)$ index.php?id=$1 [L,QSA]

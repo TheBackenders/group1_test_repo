@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add</title>
+</head>
+<body>
+    <form method='POST'>
+      
+        <p>Choose Address</p>
+        <?php
+         foreach($args as $address){
+          echo "<input type='radio' name='address' id='address' value='address'>";
+            echo "<label for='address'>".$address->name_address."</label><br>"; }
+         ?>
+        <br><br><br>
+        <a href="show_search"><input type="submit" value="search"></a>
+        <br> <br>
+        <a href="/Darrebni/ProjectFamily/">go back Home</a>
+ 
+        </form>
+</body>
+</html>

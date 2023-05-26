@@ -1,8 +1,7 @@
 <?php
-
 namespace app\models;
+require_once __DIR__."/../../config/connection.php";
 
-require_once('/../../config/connection.php');
 
 use config\Connection;
 use PDO;

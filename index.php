@@ -1,17 +1,56 @@
 <?php
-// require_once __DIR__ . '/app/controllers/familycontroller.php';
-// require_once __DIR__ . '/app/controllers/addresscontroller.php';
-// define('BASE_PATH', '/darrbeni/one/familes/');
 
+use app\controller\AddressController;
+use app\controller\FamilyController;
+use app\models\FamilyModel;
 
-// strpos($_SERVER['REQUEST_URI'], BASE_PATH);
-// if ($_SERVER['REQUEST_URI'] === BASE_PATH) {
-//    $controller =new FamilyController();
-//    $controller ->index();
-// } elseif ($_SERVER['REQUEST_URI'] === BASE_PATH . 'show') {
-//     $controller = new FamilyController();
-//     $controller->show();
-// } elseif ($_SERVER['REQUEST_URI'] === BASE_PATH . 'create') {
-//     $controller = new FamilyController($db);
-//     $controller->add();
-// } 
+$request = $_SERVER['REQUEST_URI'];
+define('BASE_PATH', '/Darrebni/Family/group1_test_repo/');
+// echo $request;
+switch ($request) {
+
+    case BASE_PATH:
+        require_once __DIR__ . "/app/controllers/familycontroller.php";
+        $controller = new FamilyController();
+        $controller->loadview('index', $families = []);
+        break;
+    case BASE_PATH . 'add':
+        require_once __DIR__ . "/app/controllers/familycontroller.php";
+        $controller = new FamilyController();
+        $controller->insert();
+        break;
+    case BASE_PATH . 'show':
+        require_once __DIR__ . "/app/controllers/familycontroller.php";
+        $controller = new FamilyController();
+        $controller->show();
+        break;
+    case BASE_PATH . 'delete?id=' . $_GET['id']:
+        require_once __DIR__ . "/app/controllers/familycontroller.php";
+        $controller = new FamilyController();
+        $controller->delete();
+        break;
+
+    case BASE_PATH . 'update?id=' . $_GET['id']:
+        require_once __DIR__ . "/app/controllers/familycontroller.php";
+        $controller = new FamilyController();
+        $controller->update();
+        break;
+
+    case BASE_PATH . 'edite?id='. $_GET['id']:
+        require_once __DIR__ . "/app/controllers/familycontroller.php";
+        $controller = new FamilyController();
+        $controller->edite();
+        break;
+
+    case BASE_PATH . 'search':
+        require_once __DIR__ . "/app/controllers/addresscontroller.php";
+        $controller = new AddressController();
+        $controller->search();
+        break;
+
+    case BASE_PATH . 'show_search':
+        require_once __DIR__ . "/app/controllers/familycontroller.php";
+        $controller = new FamilyController();
+        $controller->show_search();
+        break;
+}
