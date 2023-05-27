@@ -24,7 +24,7 @@ switch ($request) {
         $controller = new FamilyController();
         $controller->show();
         break;
-    case BASE_PATH . 'delete?id=' . $_GET['id']:
+    case BASE_PATH . 'delete?id='.$_GET['id']:
         require_once __DIR__ . "/app/controllers/familycontroller.php";
         $controller = new FamilyController();
         $controller->delete();
@@ -48,7 +48,7 @@ switch ($request) {
         $controller->search();
         break;
 
-    case BASE_PATH . 'show_search':
+    case BASE_PATH . 'show_search?id='. $_GET['id']:
         require_once __DIR__ . "/app/controllers/familycontroller.php";
         $controller = new FamilyController();
         $controller->show_search();

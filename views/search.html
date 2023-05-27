@@ -4,19 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add</title>
+    <title>Search</title>
 </head>
 <body>
-    <form method='POST'>
-      
-        <p>Choose Address</p>
-        <?php
+    <form method='post'>
+ 
+        <?php 
+         echo '<label>Choose Address  :   <select name="address" id="address" >';
          foreach($args as $address){
-          echo "<input type='radio' name='address' id='address' value='address'>";
-            echo "<label for='address'>".$address->name_address."</label><br>"; }
-         ?>
+          
+              echo ' <option value="$address->id">'.$address->name_address.'</option>';
+        
+    
+          }   echo '</select>';
+         ?>\\0
         <br><br><br>
-        <a href="show_search"><input type="submit" value="search"></a>
+       <input type="submit" value="Search">
+        <?php
+        $id=filter_input(INPUT_POST,'address',FILTER_VALIDATE_INT);
+       if(isset($_POST['submit'])){
+        $id=$_POST['address'];
+        echo $id;
+        header('Location:' . BASE_PATH . 'show_search?id='.$id);
+       }
+       ?>
+ 
         <br> <br>
         <a href="/Darrebni/ProjectFamily/">go back Home</a>
  

@@ -1,10 +1,7 @@
 <?php
-
 namespace app\controller;
-
 require_once __DIR__ . "/../models/familiesmodel.php";
 require_once __DIR__ . "/basecontroller.php";
-
 use app\models\FamilyModel;
 use app\controller\Basecontroller;
 
@@ -136,8 +133,9 @@ class FamilyController extends Basecontroller
   }
 //لعرض نتائج البحث
   public function show_search(){
+    // if($_SERVER['REQUEST_METHOD']=='POST'){
+    $id= $submit = filter_input(INPUT_POST, 'submit', FILTER_SANITIZE_SPECIAL_CHARS);
 
-    $id= $_POST['address'];
     $result = $this->model->selectData('familes', ' id_address =' . $id);
     require_once __DIR__ . '/addresscontroller.php';
     $Addree_controller = new AddressController();
@@ -152,16 +150,17 @@ class FamilyController extends Basecontroller
       $family->count = $res->count;
 
       $family->name_address = $Addree_controller->get_name_address($res->id_address);
-      $families[] = $family;
+      $families[] = $family; 
     }
-
-  }else {
+  }
+  else {
     require_once __DIR__ . '/addresscontroller.php';
     $Addree_controller = new AddressController();
     $Addree_controller->search();
-  }
+  //} 
+    }
 
- $this->loadview('show_search',$families);
+$this->loadview('show_search',$families);
   }
 
   
